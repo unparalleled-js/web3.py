@@ -4,8 +4,8 @@ import re
 
 from web3.datastructures import (
     AttributeDict,
-    tupleize_lists_nested,
     NamedElementOnion,
+    tupleize_lists_nested,
 )
 from web3.middleware import (
     GasPriceStrategyMiddleware,
