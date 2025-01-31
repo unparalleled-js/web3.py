@@ -17,7 +17,8 @@ from typing import (
     Tuple,
     TypeVar,
     Union,
-    cast, ValuesView,
+    ValuesView,
+    cast,
 )
 
 from eth_utils import (
