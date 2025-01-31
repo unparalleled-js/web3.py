@@ -5,7 +5,9 @@ import re
 from web3.datastructures import (
     AttributeDict,
     tupleize_lists_nested,
+    NamedElementOnion,
 )
+from web3.middleware import GasPriceStrategyMiddleware
 
 
 def generate_random_value(depth=0, max_depth=3, key_type=None):
@@ -207,3 +209,11 @@ def test_AttributeDict_hashing_backwards_compatibility(input, error):
             assert hash(tuple(sorted(input.items()))) == hash(input)
     else:
         assert hash(tuple(sorted(input.items()))) == hash(input)
+
+
+def test_NamedElementOnion_values():
+    middleware = GasPriceStrategyMiddleware(None)
+    initial_items = [(middleware, "gas_price_strategy")]
+    named_element_onion = NamedElementOnion(initial_items)
+    actual = [x for x in named_element_onion.values()]
+    assert actual == [middleware]

@@ -337,3 +337,6 @@ class NamedElementOnion(Mapping[TKey, TValue]):
         # This leads to typing issues, so it's better to use
         # ``as_tuple_of_middleware()`` to achieve the same result.
         return iter(self._reversed_middleware())  # type: ignore
+
+    def values(self) -> Iterator[TValue]:
+        return iter(self.as_tuple_of_middleware())
