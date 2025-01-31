@@ -7,7 +7,9 @@ from web3.datastructures import (
     tupleize_lists_nested,
     NamedElementOnion,
 )
-from web3.middleware import GasPriceStrategyMiddleware
+from web3.middleware import (
+    GasPriceStrategyMiddleware,
+)
 
 
 def generate_random_value(depth=0, max_depth=3, key_type=None):

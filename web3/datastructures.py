@@ -17,7 +17,7 @@ from typing import (
     Tuple,
     TypeVar,
     Union,
-    cast,
+    cast, ValuesView,
 )
 
 from eth_utils import (
@@ -338,5 +338,5 @@ class NamedElementOnion(Mapping[TKey, TValue]):
         # ``as_tuple_of_middleware()`` to achieve the same result.
         return iter(self._reversed_middleware())  # type: ignore
 
-    def values(self) -> Iterator[TValue]:
-        return iter(self.as_tuple_of_middleware())
+    def values(self) -> ValuesView[TValue]:
+        return ValuesView(self._queue)
